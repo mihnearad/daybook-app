@@ -4,7 +4,8 @@ services:
             context: .
             dockerfile: Dockerfile.backend
         container_name: daybook-backend
-        network_mode: host
+        ports:
+            - "8000:8000"  # Host:Container - Change host port as needed
         volumes:
             - daybook-data:/data
         environment:
@@ -15,9 +16,12 @@ services:
             context: .
             dockerfile: Dockerfile.frontend
         container_name: daybook-frontend
-        network_mode: host
+        ports:
+            - "3000:80"  # Host:Container - Change host port as needed
         depends_on:
             - backend
+        environment:
+            - VITE_API_URL=http://localhost:8000
 
 volumes:
     daybook-data:
