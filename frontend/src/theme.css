@@ -1,0 +1,203 @@
+/*
+ * DayBook Theme System
+ * Supports both light and dark modes with Apple-inspired design
+ */
+
+:root {
+  /* Light Mode Colors (Default) */
+
+  /* Backgrounds */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F5F5F7;
+  --bg-tertiary: #FAFAFA;
+
+  /* Text Colors */
+  --text-primary: #1D1D1F;
+  --text-secondary: #8E8E93;
+  --text-tertiary: #C7C7CC;
+
+  /* Interactive Colors */
+  --primary-blue: #007AFF;
+  --primary-blue-hover: #0066CC;
+  --primary-blue-light: rgba(0, 122, 255, 0.08);
+  --primary-blue-lighter: rgba(0, 122, 255, 0.04);
+
+  /* Status Colors */
+  --success-green: #34C759;
+  --success-green-hover: #30B350;
+  --danger-red: #FF3B30;
+  --danger-red-hover: #E6352A;
+  --warning-yellow: rgba(255, 204, 0, 0.1);
+  --warning-yellow-border: rgba(255, 204, 0, 0.2);
+  --warning-orange: #F59E0B;
+
+  /* Neutral Colors */
+  --gray: #8E8E93;
+  --gray-hover: #7A7A7F;
+
+  /* Borders & Dividers */
+  --border-color: rgba(0, 0, 0, 0.06);
+  --border-color-medium: rgba(0, 0, 0, 0.1);
+  --border-color-strong: rgba(0, 0, 0, 0.2);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  /* Component-specific shadows */
+  --shadow-blue: 0 2px 8px rgba(0, 122, 255, 0.2);
+  --shadow-blue-hover: 0 4px 12px rgba(0, 122, 255, 0.25);
+  --shadow-green: 0 2px 8px rgba(52, 199, 89, 0.2);
+  --shadow-green-hover: 0 4px 12px rgba(52, 199, 89, 0.25);
+  --shadow-red: 0 2px 8px rgba(255, 59, 48, 0.2);
+  --shadow-red-hover: 0 4px 10px rgba(255, 59, 48, 0.3);
+  --shadow-gray: 0 2px 8px rgba(142, 142, 147, 0.2);
+  --shadow-gray-hover: 0 4px 12px rgba(142, 142, 147, 0.25);
+
+  /* Scrollbar */
+  --scrollbar-track: #f1f5f9;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+
+  /* Focus ring */
+  --focus-ring: #007AFF;
+  --focus-ring-opacity: rgba(0, 122, 255, 0.1);
+
+  /* Animation Timing Functions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Animation Durations */
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 400ms;
+  --duration-slower: 600ms;
+
+  /* Elevation Levels */
+  --elevation-0: none;
+  --elevation-1: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --elevation-2: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --elevation-3: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --elevation-4: 0 16px 48px rgba(0, 0, 0, 0.16);
+  --elevation-5: 0 24px 64px rgba(0, 0, 0, 0.20);
+
+  /* Blur Values */
+  --blur-none: 0;
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 20px;
+  --blur-xl: 24px;
+
+  /* Border Radius Scale */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Backdrop Blur Backgrounds */
+  --bg-blur-light: rgba(255, 255, 255, 0.72);
+  --bg-blur-medium: rgba(255, 255, 255, 0.85);
+  --bg-blur-strong: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-primary: #1C1C1E;
+  --bg-secondary: #2C2C2E;
+  --bg-tertiary: #3A3A3C;
+
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #98989D;
+  --text-tertiary: #636366;
+
+  /* Interactive Colors - Brighter for dark mode */
+  --primary-blue: #0A84FF;
+  --primary-blue-hover: #409CFF;
+  --primary-blue-light: rgba(10, 132, 255, 0.15);
+  --primary-blue-lighter: rgba(10, 132, 255, 0.08);
+
+  /* Status Colors - Adjusted for dark mode */
+  --success-green: #30D158;
+  --success-green-hover: #32D65A;
+  --danger-red: #FF453A;
+  --danger-red-hover: #FF6961;
+  --warning-yellow: rgba(255, 214, 10, 0.15);
+  --warning-yellow-border: rgba(255, 214, 10, 0.3);
+  --warning-orange: #FB923C;
+
+  /* Neutral Colors */
+  --gray: #98989D;
+  --gray-hover: #AEAEB2;
+
+  /* Borders & Dividers */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-color-medium: rgba(255, 255, 255, 0.15);
+  --border-color-strong: rgba(255, 255, 255, 0.25);
+
+  /* Shadows - Lighter for dark mode */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+  /* Component-specific shadows */
+  --shadow-blue: 0 2px 8px rgba(10, 132, 255, 0.3);
+  --shadow-blue-hover: 0 4px 12px rgba(10, 132, 255, 0.4);
+  --shadow-green: 0 2px 8px rgba(48, 209, 88, 0.3);
+  --shadow-green-hover: 0 4px 12px rgba(48, 209, 88, 0.4);
+  --shadow-red: 0 2px 8px rgba(255, 69, 58, 0.3);
+  --shadow-red-hover: 0 4px 10px rgba(255, 69, 58, 0.4);
+  --shadow-gray: 0 2px 8px rgba(152, 152, 157, 0.3);
+  --shadow-gray-hover: 0 4px 12px rgba(152, 152, 157, 0.4);
+
+  /* Scrollbar */
+  --scrollbar-track: #2C2C2E;
+  --scrollbar-thumb: #48484A;
+  --scrollbar-thumb-hover: #636366;
+
+  /* Focus ring */
+  --focus-ring: #0A84FF;
+  --focus-ring-opacity: rgba(10, 132, 255, 0.2);
+
+  /* Dark Mode Elevation Levels (stronger shadows) */
+  --elevation-0: none;
+  --elevation-1: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --elevation-2: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --elevation-3: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --elevation-4: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --elevation-5: 0 24px 64px rgba(0, 0, 0, 0.7);
+
+  /* Backdrop Blur Backgrounds (Dark) */
+  --bg-blur-light: rgba(28, 28, 30, 0.72);
+  --bg-blur-medium: rgba(28, 28, 30, 0.85);
+  --bg-blur-strong: rgba(28, 28, 30, 0.95);
+}
+
+/* Smooth transitions when switching themes */
+* {
+  transition: background-color var(--duration-normal) var(--ease-in-out-smooth),
+              color var(--duration-normal) var(--ease-in-out-smooth),
+              border-color var(--duration-normal) var(--ease-in-out-smooth);
+}
+
+/* Reduced Motion Support for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

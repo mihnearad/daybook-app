@@ -1,0 +1,410 @@
+.note-editor {
+  background: var(--bg-primary);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-2);
+  border: 1px solid var(--border-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: box-shadow var(--duration-normal) var(--ease-in-out-smooth);
+}
+
+.note-editor:hover {
+  box-shadow: var(--elevation-3);
+}
+
+/* Save Toast Notification */
+.save-toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  padding: 14px 24px;
+  background: var(--bg-blur-medium);
+  backdrop-filter: blur(var(--blur-lg)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--blur-lg)) saturate(180%);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--elevation-4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideInUp var(--duration-slow) var(--ease-out-back);
+  border: 1px solid var(--border-color-medium);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.toast-message {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.save-toast-saving {
+  border-left: 4px solid var(--primary-blue);
+}
+
+.save-toast-success {
+  border-left: 4px solid var(--success-green);
+}
+
+.save-toast-error {
+  border-left: 4px solid var(--danger-red);
+}
+
+.save-toast-saving .toast-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.note-header h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.note-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.unsaved-indicator {
+  color: var(--warning-orange);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.saving-indicator {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all var(--duration-fast) var(--ease-out-back);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary-blue);
+  color: white;
+  font-weight: 500;
+  box-shadow: var(--shadow-blue);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-blue-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--elevation-2);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  transition-duration: var(--duration-instant);
+}
+
+.btn-danger {
+  background: var(--danger-red);
+  color: white;
+  font-weight: 500;
+  box-shadow: var(--shadow-red);
+}
+
+.btn-danger:hover {
+  background: var(--danger-red-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--elevation-2);
+  animation: wobble var(--duration-slow) ease;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: translateY(-2px) scale(1.02) rotate(0deg); }
+  25% { transform: translateY(-2px) scale(1.02) rotate(-5deg); }
+  75% { transform: translateY(-2px) scale(1.02) rotate(5deg); }
+}
+
+.btn-danger:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: var(--duration-instant);
+}
+
+.tags-section {
+  margin-bottom: 20px;
+}
+
+.tags-section h3 {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-in-out-smooth);
+  border: 1px solid transparent;
+}
+
+.tag-checkbox:hover {
+  background: var(--primary-blue-light);
+  border-color: var(--border-color-strong);
+  transform: translateX(2px) scale(1.02);
+}
+
+.tag-checkbox:active {
+  transform: scale(0.95);
+  transition-duration: var(--duration-instant);
+}
+
+.tag-checkbox input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-color-strong);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-back);
+  position: relative;
+  background: var(--bg-primary);
+}
+
+.tag-checkbox input[type="checkbox"]:checked {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  animation: checkboxPop var(--duration-normal) var(--ease-out-back);
+}
+
+@keyframes checkboxPop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.tag-checkbox input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+}
+
+.tag-name {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.editor-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-container .EasyMDEContainer {
+  height: 100%;
+}
+
+.editor-container .CodeMirror {
+  height: 500px;
+  border: 1px solid var(--border-color-medium);
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+/* Markdown Heading Styles - Reduced sizes for less intrusive appearance */
+.editor-container .CodeMirror .cm-header-1 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.editor-container .CodeMirror .cm-header-2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.editor-container .CodeMirror .cm-header-3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.editor-container .CodeMirror .cm-header-4 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.editor-container .CodeMirror .cm-header-5,
+.editor-container .CodeMirror .cm-header-6 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* General text styling */
+.editor-container .CodeMirror .cm-variable-2,
+.editor-container .CodeMirror .cm-variable-3,
+.editor-container .CodeMirror .cm-keyword {
+  color: var(--text-primary);
+}
+
+/* Links */
+.editor-container .CodeMirror .cm-link {
+  color: var(--primary-blue);
+}
+
+/* Code blocks */
+.editor-container .CodeMirror .cm-comment {
+  color: var(--text-secondary);
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+/* Lists and quotes */
+.editor-container .CodeMirror .cm-quote {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Ensure proper text color for all CodeMirror elements */
+.editor-container .CodeMirror-line {
+  color: var(--text-primary);
+}
+
+.editor-container .CodeMirror-cursor {
+  border-left: 1px solid var(--text-primary);
+}
+
+.editor-container .CodeMirror-selected {
+  background: var(--primary-blue-light) !important;
+}
+
+.editor-container .CodeMirror-selectedtext {
+  color: var(--text-primary) !important;
+}
+
+.editor-container .CodeMirror-gutters {
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-color-medium);
+}
+
+.editor-container .CodeMirror-linenumber {
+  color: var(--text-secondary);
+}
+
+/* Ensure toolbar has proper colors */
+.editor-container .EasyMDEContainer .editor-toolbar {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color-medium);
+  border-left: 1px solid var(--border-color-medium);
+  border-right: 1px solid var(--border-color-medium);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.editor-container .EasyMDEContainer .editor-toolbar button {
+  color: var(--text-secondary) !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.editor-container .EasyMDEContainer .editor-toolbar button:hover {
+  background: var(--primary-blue-lighter) !important;
+  color: var(--primary-blue) !important;
+}
+
+.editor-container .EasyMDEContainer .editor-toolbar button.active {
+  background: var(--primary-blue-light) !important;
+  color: var(--primary-blue) !important;
+}
+
+/* Ensure Font Awesome icons inherit the button color */
+.editor-container .EasyMDEContainer .editor-toolbar button i.fa {
+  color: inherit !important;
+}
+
+.editor-container .EasyMDEContainer .editor-toolbar i.separator {
+  border-left: 1px solid var(--border-color-medium);
+  border-right: 1px solid var(--border-color-medium);
+}
+
+.editor-container .EasyMDEContainer .editor-toolbar.disabled-for-preview button:not(.no-disable) {
+  opacity: 0.4;
+}
+
+/* Ensure preview mode has proper colors */
+.editor-container .CodeMirror-scroll {
+  background: var(--bg-primary);
+}
+
+/* Default text color for all elements */
+.editor-container .cm-s-easymde .cm-string,
+.editor-container .cm-s-easymde .cm-url,
+.editor-container .cm-s-easymde .cm-tag {
+  color: var(--text-primary);
+}

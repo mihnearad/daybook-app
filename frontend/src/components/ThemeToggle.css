@@ -1,0 +1,50 @@
+.theme-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast) var(--ease-out-back);
+  color: var(--text-primary);
+  box-shadow: var(--elevation-1);
+  overflow: hidden;
+  position: relative;
+}
+
+.theme-toggle:hover {
+  background: var(--primary-blue-lighter);
+  border-color: var(--border-color-strong);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--elevation-2);
+}
+
+.theme-toggle:active {
+  transform: translateY(0) scale(0.95);
+  transition-duration: var(--duration-instant);
+}
+
+.theme-icon {
+  font-size: 20px;
+  line-height: 1;
+  display: inline-block;
+  transition: transform var(--duration-slow) var(--ease-out-back);
+}
+
+/* Rotate animation when theme changes */
+.theme-toggle:active .theme-icon {
+  transform: rotate(180deg) scale(1.2);
+}
+
+/* Subtle pulse animation on hover */
+.theme-toggle:hover .theme-icon {
+  animation: iconPulse var(--duration-slow) var(--ease-out-back);
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
