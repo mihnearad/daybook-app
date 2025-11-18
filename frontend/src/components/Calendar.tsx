@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import { format } from 'date-fns';
 import './Calendar.css';
 
 interface CalendarProps {
@@ -34,7 +35,7 @@ export default function Calendar({ onDateSelect, selectedDate, noteDates }: Cale
     setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1));
   };
 
-  const renderCalendar = () => {
+  const calendarDays = useMemo(() => {
     const daysInMonth = getDaysInMonth(currentMonth);
     const firstDay = getFirstDayOfMonth(currentMonth);
     const days = [];
@@ -47,7 +48,8 @@ export default function Calendar({ onDateSelect, selectedDate, noteDates }: Cale
     // Days of the month
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
-      const dateStr = date.toISOString().split('T')[0];
+      // Use date-fns format to avoid timezone issues with toISOString()
+      const dateStr = format(date, 'yyyy-MM-dd');
       const isSelected =
         selectedDate.getFullYear() === date.getFullYear() &&
         selectedDate.getMonth() === date.getMonth() &&
@@ -71,19 +73,17 @@ export default function Calendar({ onDateSelect, selectedDate, noteDates }: Cale
     }
 
     return days;
-  };
+  }, [currentMonth, selectedDate, noteDates]);
 
   return (
     <div className="calendar-container">
       <div className="calendar-header">
         <button onClick={previousMonth} className="calendar-nav" aria-label="Previous month">
-          ‹
         </button>
         <h3 className="calendar-title">
           {MONTHS[currentMonth.getMonth()]} {currentMonth.getFullYear()}
         </h3>
         <button onClick={nextMonth} className="calendar-nav" aria-label="Next month">
-          ›
         </button>
       </div>
 
@@ -94,7 +94,7 @@ export default function Calendar({ onDateSelect, selectedDate, noteDates }: Cale
       </div>
 
       <div className="calendar-grid">
-        {renderCalendar()}
+        {calendarDays}
       </div>
     </div>
   );

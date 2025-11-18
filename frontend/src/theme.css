@@ -27,9 +27,18 @@
   --success-green-hover: #30B350;
   --danger-red: #FF3B30;
   --danger-red-hover: #E6352A;
+  --danger-red-light: rgba(255, 59, 48, 0.1);
   --warning-yellow: rgba(255, 204, 0, 0.1);
   --warning-yellow-border: rgba(255, 204, 0, 0.2);
   --warning-orange: #F59E0B;
+
+  /* Additional Colors */
+  --purple: #AF52DE;
+  --purple-hover: #9A3FCC;
+  --purple-light: rgba(175, 82, 222, 0.1);
+  --teal: #5AC8FA;
+  --teal-hover: #32ADE6;
+  --teal-light: rgba(90, 200, 250, 0.1);
 
   /* Neutral Colors */
   --gray: #8E8E93;
@@ -55,6 +64,10 @@
   --shadow-red-hover: 0 4px 10px rgba(255, 59, 48, 0.3);
   --shadow-gray: 0 2px 8px rgba(142, 142, 147, 0.2);
   --shadow-gray-hover: 0 4px 12px rgba(142, 142, 147, 0.25);
+  --shadow-purple: 0 2px 8px rgba(175, 82, 222, 0.2);
+  --shadow-purple-hover: 0 4px 12px rgba(175, 82, 222, 0.25);
+  --shadow-teal: 0 2px 8px rgba(90, 200, 250, 0.2);
+  --shadow-teal-hover: 0 4px 12px rgba(90, 200, 250, 0.25);
 
   /* Scrollbar */
   --scrollbar-track: #f1f5f9;
@@ -131,9 +144,18 @@
   --success-green-hover: #32D65A;
   --danger-red: #FF453A;
   --danger-red-hover: #FF6961;
+  --danger-red-light: rgba(255, 69, 58, 0.15);
   --warning-yellow: rgba(255, 214, 10, 0.15);
   --warning-yellow-border: rgba(255, 214, 10, 0.3);
   --warning-orange: #FB923C;
+
+  /* Additional Colors - Brighter for dark mode */
+  --purple: #BF5AF2;
+  --purple-hover: #D375FF;
+  --purple-light: rgba(191, 90, 242, 0.15);
+  --teal: #64D2FF;
+  --teal-hover: #7FDBFF;
+  --teal-light: rgba(100, 210, 255, 0.15);
 
   /* Neutral Colors */
   --gray: #98989D;
@@ -159,6 +181,10 @@
   --shadow-red-hover: 0 4px 10px rgba(255, 69, 58, 0.4);
   --shadow-gray: 0 2px 8px rgba(152, 152, 157, 0.3);
   --shadow-gray-hover: 0 4px 12px rgba(152, 152, 157, 0.4);
+  --shadow-purple: 0 2px 8px rgba(191, 90, 242, 0.3);
+  --shadow-purple-hover: 0 4px 12px rgba(191, 90, 242, 0.4);
+  --shadow-teal: 0 2px 8px rgba(100, 210, 255, 0.3);
+  --shadow-teal-hover: 0 4px 12px rgba(100, 210, 255, 0.4);
 
   /* Scrollbar */
   --scrollbar-track: #2C2C2E;

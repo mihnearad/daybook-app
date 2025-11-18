@@ -10,15 +10,10 @@ export default function Settings({ onExportMarkdown, onExportJSON }: SettingsPro
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      {isOpen && (
-        <div className="settings-backdrop" onClick={() => setIsOpen(false)} />
-      )}
-
       <div className="settings">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="btn btn-secondary"
+          className="btn btn-settings"
           title="Settings"
         >
           {isOpen ? '✖️ Close' : '⚙️ Settings'}
@@ -80,6 +75,5 @@ export default function Settings({ onExportMarkdown, onExportJSON }: SettingsPro
           </div>
         )}
       </div>
-    </>
   );
 }

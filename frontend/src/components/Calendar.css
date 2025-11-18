@@ -44,14 +44,16 @@
 
 .calendar-nav::before {
   font-size: 18px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
 }
 
 .calendar-nav:first-child::before {
-  content: "⬅️";
+  content: "<";
 }
 
 .calendar-nav:last-child::before {
-  content: "➡️";
+  content: ">";
 }
 
 .calendar-nav:hover {

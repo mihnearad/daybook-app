@@ -136,6 +136,7 @@ function App() {
         try {
             await notesApi.delete(currentNote.date);
             setCurrentNote(null);
+            // Reload all notes - this will update both allNotes and noteDates
             await loadNotes();
         } catch (error) {
             console.error("Error deleting note:", error);
@@ -265,16 +266,16 @@ function App() {
                     <h1>DayBook</h1>
                 </div>
                 <div className="header-actions">
-                    <Settings
-                        onExportMarkdown={handleExportMarkdown}
-                        onExportJSON={handleExportJSON}
-                    />
-                    <ThemeToggle />
                     <TagManager
                         tags={tags}
                         onCreateTag={handleCreateTag}
                         onDeleteTag={handleDeleteTag}
                     />
+                    <Settings
+                        onExportMarkdown={handleExportMarkdown}
+                        onExportJSON={handleExportJSON}
+                    />
+                    <ThemeToggle />
                 </div>
             </header>
 

@@ -19,7 +19,7 @@
 }
 
 .btn-secondary {
-  background: var(--text-secondary);
+  background: var(--purple);
   color: white;
   padding: 8px 16px;
   border: none;
@@ -28,13 +28,13 @@
   font-size: 14px;
   font-weight: 500;
   transition: all var(--duration-fast) var(--ease-out-back);
-  box-shadow: var(--elevation-1);
+  box-shadow: var(--shadow-purple);
 }
 
 .btn-secondary:hover {
-  background: var(--text-primary);
+  background: var(--purple-hover);
   transform: translateY(-2px) scale(1.02);
-  box-shadow: var(--elevation-2);
+  box-shadow: var(--shadow-purple-hover);
 }
 
 .btn-secondary:active {

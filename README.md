@@ -2,6 +2,8 @@
 
 DayBook is an open-source daily note-taking companion that pairs a modern FastAPI backend with a React/Vite frontend. Write exactly one markdown note per day, browse previous entries on a calendar, organize content with tags, search across your archive, and export data at any time. The project is inspired by DailyTxT and is intentionally built for self-hosting and community-driven enhancements.
 
+![DayBook screenshot showing calendar, note editor, and tag manager](images/AppDisplay.png)
+
 ## Highlights
 
 - **Daily notebook workflow** – Automatically maintains a single markdown document per day with versioned timestamps.

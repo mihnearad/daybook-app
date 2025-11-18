@@ -21,11 +21,6 @@ export default function TagManager({ tags, onCreateTag, onDeleteTag }: TagManage
   };
 
   return (
-    <>
-      {isOpen && (
-        <div className="tag-manager-backdrop" onClick={() => setIsOpen(false)} />
-      )}
-
       <div className="tag-manager">
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -89,6 +84,5 @@ export default function TagManager({ tags, onCreateTag, onDeleteTag }: TagManage
           </div>
         )}
       </div>
-    </>
   );
 }
